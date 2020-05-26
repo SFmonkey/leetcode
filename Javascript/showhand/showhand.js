@@ -125,18 +125,20 @@ Promise.prototype.race = function(promises) {
 Promise.prototype.all = function(promises) {
     return new Promise(function(resolve, reject) {
         let arr = [];
+        let countNum = 0;
 
-        function processData(index, y) {
-            arr[index] = y;
-            if (++index === promises.length) {
+        function process(i, value) {
+            countNum ++;
+            arr[i] = value;
+            if (countNum === promises.length) {
                 resolve(arr);
             }
         }
-
-        for (let i = 0; i < promises.length; i++) {
-            promises[i].then(function(y) {
-                processData(i, y)
-            },reject);
+        
+        for(let i = 0; i < promises.length; i++) {
+            promises[i].then((value) => {
+                process(i, value);
+            }, reject);
         }
     });
 }
@@ -216,7 +218,7 @@ function shuffle(arr) {
     let len = arr.length;
 
     while(len--) {
-        let idx = parseInt(Math.random * len--);
+        let idx = parseInt(Math.random() * len--);
         [arr[idx], arr[len]] = [arr[len], arr[idx]];
     }
 
@@ -311,12 +313,13 @@ Function.prototype.myCall = function(context) {
  * apply 函数实现
  */
 Function.prototype.myApply = function(context, arr) {
+    let context = context || window;
     if (typeof this != 'function') {
         throw new TypeError('this is not a function');
     }
 
     context.fn = this;
-    let result = [];
+    let result;
     if (!arr) {
         result = context.fn();
     } else {
@@ -349,7 +352,7 @@ Function.prototype.myBind = function(context) {
 
     F.prototype = this.prototype;
     let bound = function() {
-        var bindArgs = Array.prototype.slice(arguments)
+        var bindArgs = Array.prototype.slice.call(arguments)
         return self.apply(this instanceof F ? this : context, args.concat(bindArgs));
     }
     bound.prototype = new F();
@@ -461,4 +464,72 @@ function currying(fn, length) {
             return currying(fn.bind(this, ...args), len - args.length);
         }
     }
+}
+
+/**
+ * 实现请求并发数的控制
+ * @param {*} urls 
+ * @param {*} num 
+ * @param {*} callback 
+ */
+const requestPool = (urls, num, callback) => {
+    let requestUrls = [...urls];
+
+    async function requestHandle(url) {
+        const data = await fetch(url);
+
+        refresh();
+
+        return data;
+    }
+
+    function refresh() {
+        if (requestUrls.length) {
+            const url = requestUrls.unshift();
+            requestHandle(url)
+        } else {
+            callback();
+        }
+    }
+
+    const limit = Math.min(num, requestUrls.length);
+    for (let i = 0; i < limit; i++) {
+        refresh();
+    }
+}
+
+/**
+ * ES5 实现继承
+ */
+function Parent(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Parent.prototype.say = function() {
+    console.log('I am' + this.name);
+}
+
+function Child(name, age, sex) {
+    Parent.call(this, name, age);
+    this.sex = sex;
+}
+
+Child.prototype = Object.create(Parent.prototype);
+Child.prototype.constructor = Child;
+
+/**
+ * compose 函数
+ * @param  {...any} funs 
+ */
+function compose(...funs) {
+    if (funs.length === 0) {
+        return arg => arg;
+    }
+
+    if (funs.length === 1) {
+        return funs[0];
+    }
+
+    return funs.reduce((a, b) => (...args) => a(b(...args)));
 }
