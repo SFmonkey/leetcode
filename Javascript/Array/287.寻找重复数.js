@@ -1,14 +1,6 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-
-/**
- * @param {ListNode} head
- * @return {ListNode}
+ * @param {number[]} nums
+ * @return {number}
  */
 /**
  * 快慢指针方法
@@ -22,20 +14,20 @@
  * 所以快慢指针都走了环长的倍数，所以当fast到起始点时走非环部分n时，慢指针也就刚好走到环的重复位置
  * 即此时快慢指针指向的即为环的起始值
  */
-var detectCycle = function(head) {
-    let slow = head;
-    let fast = head;
-    while(fast && fast.next && fast.next.next) {
-        fast = fast.next.next;
-        slow = slow.next;
+var findDuplicate = function(nums) {
+    let fast = slow = 0
+    while(1) {
+        fast = nums[nums[fast]]
+        slow = nums[slow]
         if(slow == fast) {
-            fast = head
-            while(slow !== fast){
-                fast = fast.next;
-                slow = slow.next;
+            fast = 0
+            while(1){
+                fast = nums[fast]
+                slow = nums[slow]
+                if(slow == fast) {
+                    return slow
+                }
             }
-            return fast
         }
-    }  
-    return null
+    }
 };
