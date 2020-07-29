@@ -15,5 +15,5 @@ ifnull(
 	 from Employee 
 	 order by Salary limit 1, 1),
 	null 
-)
+) as "SecondHighestSalary"
 ;
