@@ -8,3 +8,13 @@ func TestThreeSum15(t *testing.T)  {
 	res := threeSum(in)
 	t.Log(res)
 }
+
+func TestRemoveElement27(t *testing.T)  {
+	in := []int{0,1,2,2,3,0,4,2}
+	//in := []int{3,2,2,3}
+	//in := []int{}
+	t.Log(in)
+	val := 2
+	res := removeElement2(in, val)
+	t.Log(in[:res])
+}
