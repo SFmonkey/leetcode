@@ -10,6 +10,7 @@ func threeSum(nums []int) [][]int {
 	if len(nums) == 0 || len(nums) < 3{
 		return res
 	}
+	// 排序后双指针头尾缩进搜索
 	sort.Ints(nums)
 	var left, right int
 	tmp := 0
