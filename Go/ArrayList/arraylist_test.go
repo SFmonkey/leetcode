@@ -18,3 +18,11 @@ func TestRemoveElement27(t *testing.T)  {
 	res := removeElement2(in, val)
 	t.Log(in[:res])
 }
+
+func TestSearchInsert35(t *testing.T) {
+	//in := []int{1,3,5,6}
+	in := []int{1}
+	target := 1
+	res := searchInsert(in, target)
+	t.Log(res)
+}
