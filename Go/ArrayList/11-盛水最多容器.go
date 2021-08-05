@@ -1,6 +1,6 @@
 package ArrayList
 
-// 双指针真头尾缩紧，每次移动高小的指针
+// 双指针真头尾缩进，每次移动高小的指针
 func maxArea(height []int) int {
 	i, j := 0, len(height)-1
 	var area, maxA = 0, 0
