@@ -18,3 +18,11 @@ func TestRemoveElement27(t *testing.T)  {
 	res := removeElement2(in, val)
 	t.Log(in[:res])
 }
+
+func TestThreeSumClosest(t *testing.T)  {
+	in := []int{-1,2,1,-4}
+	// -4 -1 1 2
+	target := 1
+	res := threeSumClosest(in, target)
+	t.Log(res)
+}
