@@ -19,18 +19,19 @@ func TestRemoveElement27(t *testing.T)  {
 	t.Log(in[:res])
 }
 
-<<<<<<< HEAD
-func TestThreeSumClosest(t *testing.T)  {
-	in := []int{-1,2,1,-4}
+func TestThreeSumClosest(t *testing.T) {
+	//in := []int{-1,2,1,-4}
+	in := []int{1,1,1,0}
 	// -4 -1 1 2
-	target := 1
+	target := -100
 	res := threeSumClosest(in, target)
-=======
+	t.Log(res)
+}
+
 func TestSearchInsert35(t *testing.T) {
 	//in := []int{1,3,5,6}
 	in := []int{1}
 	target := 1
 	res := searchInsert(in, target)
->>>>>>> 291125ee4a6c4edc0daea99c12856950af360363
 	t.Log(res)
 }

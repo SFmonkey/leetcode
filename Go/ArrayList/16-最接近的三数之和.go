@@ -1,7 +1,6 @@
 package ArrayList
 
 import (
-	"fmt"
 	"math"
 	"sort"
 )
@@ -16,6 +15,7 @@ func threeSumClosest(nums []int, target int) int {
 	var closest, minDiff int
 	minDiff = 1000000
 	for i:=0; i<len(nums); i++ {
+		left, right = i+1, len(nums)-1
 		for left < right {
 			tmp = nums[i]+nums[left]+nums[right]
 			diff = int(math.Abs(float64(tmp-target)))
@@ -23,7 +23,6 @@ func threeSumClosest(nums []int, target int) int {
 			if 0 == diff {
 				return target
 			}
-			fmt.Println(nums[i], nums[left], nums[right], tmp, diff, minDiff)
 			// 小于最小差值，更新返回值
 			if diff < minDiff {
 				closest = tmp
