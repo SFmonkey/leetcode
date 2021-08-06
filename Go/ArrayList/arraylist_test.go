@@ -35,3 +35,10 @@ func TestSearchInsert35(t *testing.T) {
 	res := searchInsert(in, target)
 	t.Log(res)
 }
+
+func TestNextPermutation(t *testing.T)  {
+	nums := []int{1,2,3,8,5,7,6,4}
+	//nums := []int{3,2,1}
+	nextPermutation(nums)
+	t.Log(nums)
+}
