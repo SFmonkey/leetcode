@@ -51,4 +51,5 @@ func pprint(l *ListNode) {
 		fmt.Print(n.Val)
 		n = n.Next
 	}
+	fmt.Println()
 }
