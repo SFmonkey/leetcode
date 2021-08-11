@@ -2,14 +2,9 @@ package LinkedList
 
 // 快慢指针，快指针比慢指针快k
 func rotateRight(head *ListNode, k int) *ListNode {
-	// 0 -> 1 -> 2
-	// 2 -> 0 -> 1  (1)
-	// 1 -> 2 -> 0  (2)
-	// 0 -> 1 -> 2  (3) return
-	// 2 -> 0 -> 1  (4) move 1
-	// 1 -> 2 -> 0  (5) move 0
-	// (7) move 1
-	// (8) move 0
+	if head == nil || 0 == k {
+		return head
+	}
 	var slowCnt, fastCnt int
 	slow := head
 	fast := head
