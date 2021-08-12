@@ -4,20 +4,20 @@ import "testing"
 
 func TestMergeTwoLists21(t *testing.T)  {
 	b := ListNode{
-		Val:  2,
+		Val:  4,
 		Next: nil,
 	}
 	a := ListNode{
-		Val: 1,
+		Val: 2,
 		Next: &b,
 	}
 	e := ListNode{
-		Val:  3,
-		Next: nil,
+		Val:  1,
+		Next: &a,
 	}
 	d := ListNode{
-		Val: -1,
+		Val: 1,
 		Next: &e,
 	}
-	mergeTwoLists(&a, &d)
+	deleteDuplicatesII(&d)
 }
