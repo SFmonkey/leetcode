@@ -28,7 +28,7 @@ func deleteDuplicatesII(head *ListNode) *ListNode {
 			left.Next = right
 		}
 	}
-	// 如果最有几个节点有重复，单独执行删除
+	// 如果最后几个节点有重复，单独执行删除
 	if left.Next != right {
 		left.Next = nil
 	}
