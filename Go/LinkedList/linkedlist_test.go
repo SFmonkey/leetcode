@@ -3,21 +3,24 @@ package LinkedList
 import "testing"
 
 func TestMergeTwoLists21(t *testing.T)  {
-	b := ListNode{
-		Val:  4,
+	ll := []int{2}
+	l := buildLinkedList(ll)
+	partition(l, 1)
+}
+
+func buildLinkedList(nums []int) *ListNode {
+	head := &ListNode{
+		Val:  0,
 		Next: nil,
 	}
-	a := ListNode{
-		Val: 2,
-		Next: &b,
+	l := head
+	for i:=0; i<len(nums); i++ {
+		tmp := &ListNode{
+			Val:  nums[i],
+			Next: nil,
+		}
+		l.Next = tmp
+		l = l.Next
 	}
-	e := ListNode{
-		Val:  1,
-		Next: &a,
-	}
-	d := ListNode{
-		Val: 1,
-		Next: &e,
-	}
-	deleteDuplicatesII(&d)
+	return head.Next
 }
