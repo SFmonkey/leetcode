@@ -5,10 +5,9 @@ import (
 )
 
 func TestMergeTwoLists21(t *testing.T)  {
-	ll := []int{1,2}
+	ll := []int{1,2,3,4,5,6}
 	l := buildLinkedList(ll)
-	res := isPalindrome(l)
-	t.Log(res)
+	middleNode(l)
 }
 
 func buildLinkedList(nums []int) *ListNode {
