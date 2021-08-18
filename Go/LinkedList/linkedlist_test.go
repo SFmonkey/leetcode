@@ -1,11 +1,14 @@
 package LinkedList
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestMergeTwoLists21(t *testing.T)  {
-	ll := []int{1,2,3,4,5}
+	ll := []int{1,2}
 	l := buildLinkedList(ll)
-	reverseList(l)
+	res := isPalindrome(l)
+	t.Log(res)
 }
 
 func buildLinkedList(nums []int) *ListNode {
