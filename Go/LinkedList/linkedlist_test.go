@@ -3,9 +3,9 @@ package LinkedList
 import "testing"
 
 func TestMergeTwoLists21(t *testing.T)  {
-	nums := []int{5}
+	nums := []int{1,2,3,4}
 	ll := buildLinkedList(nums)
-	reverseBetween(ll, 1, 1)
+	reorderList(ll)
 }
 
 func buildLinkedList(nums []int) *ListNode {
