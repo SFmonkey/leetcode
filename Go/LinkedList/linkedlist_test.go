@@ -5,7 +5,7 @@ import "testing"
 func TestMergeTwoLists21(t *testing.T)  {
 	nums := []int{1,2,3}
 	ll := buildLinkedList(nums)
-	plusOne(ll)
+	reverseList24(ll)
 }
 
 func buildLinkedList(nums []int) *ListNode {
