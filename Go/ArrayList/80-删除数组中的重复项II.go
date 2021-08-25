@@ -1,6 +1,6 @@
 package ArrayList
 
-// 快慢指针，后向前覆盖
+// 快慢指针，后向前覆盖，不需要替换
 func removeDuplicates2(nums []int) int {
 	if len(nums) <= 2 {
 		return len(nums)
