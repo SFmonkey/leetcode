@@ -3,9 +3,9 @@ package LinkedList
 import "testing"
 
 func TestMergeTwoLists21(t *testing.T)  {
-	nums := []int{1,2}
+	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	ll := buildLinkedList(nums)
-	removeDuplicateNodes(ll)
+	splitListToParts(ll, 20)
 }
 
 func buildLinkedList(nums []int) *ListNode {
