@@ -33,8 +33,8 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 
 func printLL(l *ListNode)  {
 	for l != nil {
-		fmt.Print(l.Val)
+		fmt.Print(fmt.Sprintf("%d->", l.Val))
 		l = l.Next
 	}
-	fmt.Println()
+	fmt.Println("nil")
 }
