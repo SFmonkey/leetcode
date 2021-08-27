@@ -5,9 +5,9 @@ import (
 )
 
 func TestMergeTwoLists21(t *testing.T)  {
-	nums := []int{1, 2, 3, 2}
+	nums := []int{100,90}
 	ll := buildLinkedList(nums)
-	deleteDuplicatesUnsorted(ll)
+	swapNodes(ll, 2)
 }
 
 func TestDesign(t *testing.T)  {
