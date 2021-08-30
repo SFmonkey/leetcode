@@ -11,24 +11,21 @@ func TestMergeTwoLists21(t *testing.T)  {
 }
 
 func TestDesign(t *testing.T)  {
-	obj := Constructor("leetcode")
-	obj.Visit("google")
-	obj.Visit("facebook")
-	obj.Visit("youtube")
-	url := obj.Back(1)
-	t.Log(url)
-	url = obj.Back(1)
-	t.Log(url)
-	url = obj.Forward(1)
-	t.Log(url)
-	obj.Visit("linkedin")
-	url = obj.Forward(2)
-	t.Log(url)
-	url = obj.Back(2)
-	t.Log(url)
-	url = obj.Back(7)
-	t.Log(url)
-	printHistory(&obj)
+	// ["MaxStack","push","peekMax","popMax"]
+	// [[],[5],[],[]]
+	obj := ConstructorStack()
+	obj.Push(5)
+	obj.Push(1)
+	obj.Push(5)
+	printStack(obj.topNode)
+	t.Log(obj.Pop())
+	t.Log(obj.PeekMax())
+	t.Log(obj.Top())
+
+	//t.Log(obj.PeekMax())
+	//t.Log(obj.Pop())
+
+	//printStack(obj.topNode)
 }
 
 func buildLinkedList(nums []int) *ListNode {
