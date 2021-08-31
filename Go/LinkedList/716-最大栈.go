@@ -38,15 +38,17 @@ func (this *MaxStack) Push(x int)  {
 }
 
 func (this *MaxStack) Pop() int {
+	// 栈中只有一个元素，全部置空
 	if this.stackLen == 1 {
 		val := this.topNode.val
 		this.topNode = nil
 		this.maxNode = nil
+		this.stackLen = 0
 		return val
 	}
 	topVal := this.topNode.val
-	// 如果pop的是最大值节点，遍历找到新的最大值节点
-	if this.topNode == this.maxNode {
+	// 如果最大值节点的值 == 栈顶节点值，遍历找到新的最大值节点
+	if this.topNode.val == this.maxNode.val {
 		tmp := this.topNode.next
 		this.maxNode.val = tmp.val
 		for tmp != nil {
@@ -58,12 +60,8 @@ func (this *MaxStack) Pop() int {
 	}
 	this.topNode = this.topNode.next
 	this.stackLen--
-	if this.stackLen == 0 {
-		this.maxNode = nil
-	}
 	return topVal
 }
-
 
 func (this *MaxStack) Top() int {
 	return this.topNode.val
@@ -77,12 +75,9 @@ func (this *MaxStack) PeekMax() int {
 func (this *MaxStack) PopMax() int {
 	topVal := this.maxNode.val
 	tmp := this.topNode
+	// 如果最大值节点的值 == 栈顶节点值，等同于pop
 	if this.maxNode.val == this.topNode.val {
-		this.topNode = this.topNode.next
-		if this.topNode == nil {
-			this.maxNode = nil
-			return topVal
-		}
+		return this.Pop()
 	} else {
 		// 遍历寻找并删除最大值节点
 		for tmp.next != nil {
