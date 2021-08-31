@@ -11,21 +11,13 @@ func TestMergeTwoLists21(t *testing.T)  {
 }
 
 func TestDesign(t *testing.T)  {
-	// ["MaxStack","push","peekMax","popMax"]
-	// [[],[5],[],[]]
-	obj := ConstructorStack()
-	obj.Push(5)
-	obj.Push(1)
-	obj.Push(5)
-	printStack(obj.topNode)
-	t.Log(obj.Pop())
-	t.Log(obj.PeekMax())
-	t.Log(obj.Top())
-
-	//t.Log(obj.PeekMax())
-	//t.Log(obj.Pop())
-
-	//printStack(obj.topNode)
+	lru := ConstructorLRU(2)
+	lru.Put(2, 1)
+	lru.Put(2, 2)
+	printLru(lru.head)
+	t.Log(lru.head, lru.tail)
+	res := lru.Get(2)
+	t.Log(res)
 }
 
 func buildLinkedList(nums []int) *ListNode {
