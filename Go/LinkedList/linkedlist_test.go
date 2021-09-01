@@ -12,12 +12,16 @@ func TestMergeTwoLists21(t *testing.T)  {
 
 func TestDesign(t *testing.T)  {
 	lru := ConstructorLRU(2)
-	lru.Put(2, 1)
-	lru.Put(2, 2)
-	printLru(lru.head)
-	t.Log(lru.head, lru.tail)
+	lru.Get(2)
+	lru.Put(2, 6)
+	lru.Get(1)
+	lru.Put(1, 5)
+	lru.Put(1, 2)
+	lru.Get(1)
 	res := lru.Get(2)
 	t.Log(res)
+	printLru(lru.head)
+	//t.Log(lru.head, lru.tail)
 }
 
 func buildLinkedList(nums []int) *ListNode {
