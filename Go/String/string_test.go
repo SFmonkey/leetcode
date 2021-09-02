@@ -8,6 +8,6 @@ func TestIsValid20(t *testing.T)  {
 }
 
 func TestString(t *testing.T)  {
-	res := compressString("bb")
+	res := permutation("aab")
 	t.Log(res)
 }
