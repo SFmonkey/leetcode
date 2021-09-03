@@ -3,10 +3,9 @@ package ArrayList
 import "testing"
 
 func TestFunc(t *testing.T)  {
-	nums := []int{1,1}
 	//nums := "25525511135"
-	//nums := []int{1,2,3,4,5,6,7}
-	//nums := [][]int{{1,2,3},{4,5,6},{7,8,9}}
-	res := searchRange(nums, 1)
+	//nums := [][]int{{0,30},{5,10},{15,20}}
+	nums := [][]int{{7,10},{2,4}}
+	res := canAttendMeetings(nums)
 	t.Log(res)
 }
