@@ -8,6 +8,6 @@ func TestIsValid20(t *testing.T)  {
 }
 
 func TestString(t *testing.T)  {
-	res := multiply("401716832807512840963", "167141802233061013023557397451289113296441069")
+	res := reverseWords("the sky            is blue       ")
 	t.Log(res)
 }
