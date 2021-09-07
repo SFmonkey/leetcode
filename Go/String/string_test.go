@@ -8,6 +8,6 @@ func TestIsValid20(t *testing.T)  {
 }
 
 func TestString(t *testing.T)  {
-	res := addStrings("456", "77")
+	res := checkValidString("(")
 	t.Log(res)
 }
