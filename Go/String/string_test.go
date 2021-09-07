@@ -8,6 +8,6 @@ func TestIsValid20(t *testing.T)  {
 }
 
 func TestString(t *testing.T)  {
-	res := reverseWords("the sky            is blue       ")
+	res := addStrings("456", "77")
 	t.Log(res)
 }
