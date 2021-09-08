@@ -10,5 +10,10 @@ func TestFunc(t *testing.T)  {
 	//nums := []int{73,74,75,71,69,72,76,73}
 	//res := dailyTemperatures(nums)
 	//t.Log(res)
-	t.Log((4/3)*3)
+	insert([][]int{{1,3},{6,9}}, []int{2,5})
+}
+
+func TestSort(t *testing.T)  {
+	nums := []int{4,5,2,3,1}
+	sortArrayQuickSort(nums)
 }
